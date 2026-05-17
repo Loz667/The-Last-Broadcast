@@ -1,0 +1,33 @@
+'The Last Broadcast' Script
+
+[INTRO] 0_1
+"Pilot, this is Station Wren calling. Do you read me?
+Enemy action has severed our wireless network across the southern line.
+Six radio towers remain silent. Without them, our coastal stations are blind.
+Your orders are simple, but vital. Reach each tower, clear the skies and restore the broadcast.
+Once the signal is returned, command can warn the fleet before the enemy advance begins.
+Time is not our ally, pilot. Every minute of silence places more lives in danger."
+
+[ENEMY] 
+E_1 “Enemy fighters approaching from above. Break their formation.”
+E_2 “Enemy patrol closing fast. Do not let them drive you off course.”
+E_3 “They are trying to keep the towers silent. Do not give them the satisfaction.”
+
+[TOWER NOT RESTORED LINES]
+T2_1 Stay with the route. Keep your nerve.
+T2_2 That tower carried messages from the eastern watch posts. We have heard nothing from them since.
+T2_3 Keep moving. You are carrying the only signal strong enough to restart the relay.
+
+[TOWER RESTORED LINES]
+T1_1 “That is it. The tower is transmitting again.”
+T1_2 “Signal strength is weak, but holding. Well done.”
+T1_3 “We are receiving fragments from the eastern posts. Not enough to act upon, but enough to know they are still there.”
+T1_4 “The network is waking, pilot. Proceed to the next tower.”
+T1_5 Signal restored. All towers are transmitting
+
+
+
+
+
+
+
