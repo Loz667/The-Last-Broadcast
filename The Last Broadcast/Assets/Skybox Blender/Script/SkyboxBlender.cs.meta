@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 70633c70e529b824d9168cd2abfc1a5f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 186047
+  packageName: Skybox Blender
+  packageVersion: 2.2.3
+  assetPath: Assets/Skybox Blender/Script/SkyboxBlender.cs
+  uploadId: 761407

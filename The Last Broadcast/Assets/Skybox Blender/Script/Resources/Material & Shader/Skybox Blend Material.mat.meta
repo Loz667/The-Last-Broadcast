@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 7c10da0d74d78364bac94506d77290bf
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 186047
+  packageName: Skybox Blender
+  packageVersion: 2.2.3
+  assetPath: Assets/Skybox Blender/Script/Resources/Material & Shader/Skybox Blend
+    Material.mat
+  uploadId: 761407

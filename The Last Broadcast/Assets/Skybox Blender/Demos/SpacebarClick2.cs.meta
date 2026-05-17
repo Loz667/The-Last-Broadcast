@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: c3ab109d36aeec1458ecb166fb02046e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 186047
+  packageName: Skybox Blender
+  packageVersion: 2.2.3
+  assetPath: Assets/Skybox Blender/Demos/SpacebarClick2.cs
+  uploadId: 761407

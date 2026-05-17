@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b64ce746c3085784dbb233aa2fabe7f6
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 186047
+  packageName: Skybox Blender
+  packageVersion: 2.2.3
+  assetPath: Assets/Skybox Blender/Demos/Skyboxes/Sky2_mat.mat
+  uploadId: 761407
