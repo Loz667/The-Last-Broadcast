@@ -4,21 +4,21 @@ public class UIRotateVinyl : MonoBehaviour
 {
     [Header("Rotation Settings")]
     [SerializeField] private float rotationSpeed = 20f;
+    [SerializeField] private bool rotateClockwise = true;
 
-    private void Start()
-    {
-        LeanTween.rotateAround(
-            gameObject,
-            Vector3.forward,
-            -360f,
-            rotationSpeed
-        )
-        .setLoopClamp()
-        .setEase(LeanTweenType.linear);
-    }
+    [Header("Time Settings")]
+    [SerializeField] private bool ignoreTimeScale = true;
 
-    private void OnDisable()
+    private void Update()
     {
-        LeanTween.cancel(gameObject);
+        float direction = rotateClockwise ? -1f : 1f;
+        float deltaTime = ignoreTimeScale ? Time.unscaledDeltaTime : Time.deltaTime;
+
+        transform.Rotate(
+            0f,
+            0f,
+            direction * rotationSpeed * deltaTime,
+            Space.Self
+        );
     }
 }

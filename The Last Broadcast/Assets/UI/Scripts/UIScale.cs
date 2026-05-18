@@ -1,43 +1,45 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class UIScale : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class UIScale : MonoBehaviour
 {
-    [Header("Scale Settings")]
-    [SerializeField] private float hoverScale = 1.1f;
-    [SerializeField] private float animationTime = 0.15f;
+    [Header("Pulse Settings")]
+    [SerializeField] private float pulseScale = 1.15f;
+    [SerializeField] private float pulseSpeed = 3f;
 
-    [Header("Tween Settings")]
-    [SerializeField] private LeanTweenType easeType = LeanTweenType.easeOutBack;
+    [Header("Time Settings")]
+    [SerializeField] private bool ignoreTimeScale = true;
 
     private Vector3 originalScale;
-    private int currentTweenId = -1;
 
     private void Awake()
     {
         originalScale = transform.localScale;
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    private void OnEnable()
     {
-        ScaleButton(originalScale * hoverScale);
+        transform.localScale = originalScale;
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    private void Update()
     {
-        ScaleButton(originalScale);
+        float time = ignoreTimeScale ? Time.unscaledTime : Time.time;
+
+        // Creates a smooth value between 0 and 1
+        float pulse = (Mathf.Sin(time * pulseSpeed) + 1f) / 2f;
+
+        // Creates the target scale between original size and enlarged size
+        Vector3 targetScale = Vector3.Lerp(
+            originalScale,
+            originalScale * pulseScale,
+            pulse
+        );
+
+        transform.localScale = targetScale;
     }
 
-    private void ScaleButton(Vector3 targetScale)
+    private void OnDisable()
     {
-        // Stops the previous tween so animations do not overlap
-        if (currentTweenId != -1)
-        {
-            LeanTween.cancel(currentTweenId);
-        }
-
-        currentTweenId = LeanTween.scale(gameObject, targetScale, animationTime)
-            .setEase(easeType)
-            .id;
+        transform.localScale = originalScale;
     }
 }
