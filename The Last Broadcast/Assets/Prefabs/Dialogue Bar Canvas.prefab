@@ -88,7 +88,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ade5c21f616c834a8006e014023f012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIRotateVinyl
-  rotationSpeed: 10
+  rotationSpeed: 70
+  rotateClockwise: 1
+  ignoreTimeScale: 1
 --- !u!1 &3401362296941385723
 GameObject:
   m_ObjectHideFlags: 0
