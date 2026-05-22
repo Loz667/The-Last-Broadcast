@@ -19,6 +19,11 @@ public class PlayerWeapon : MonoBehaviour
         SetMachineGunEmission(false);
     }
 
+    void Start()
+    {
+        Cursor.visible = false;
+    }
+
     private void Update()
     {
         ProcessFiring();
