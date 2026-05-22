@@ -6,8 +6,10 @@ public class PlayerWeapon : MonoBehaviour
     [Header("Weapon Particle Parent")]
     [SerializeField] private GameObject machineGuns;
 
-    private ParticleSystem[] machineGunParticles;
+    [Header("Crosshair")]
+    [SerializeField] private RectTransform crosshair;
 
+    private ParticleSystem[] machineGunParticles;
     private bool isFiring = false;
 
     private void Awake()
@@ -20,6 +22,7 @@ public class PlayerWeapon : MonoBehaviour
     private void Update()
     {
         ProcessFiring();
+        MoveCrosshair();
     }
 
     public void OnFire(InputValue value)
@@ -44,5 +47,17 @@ public class PlayerWeapon : MonoBehaviour
                 particle.Play();
             }
         }
+    }
+
+    private void MoveCrosshair()
+    {
+        if (Mouse.current == null || crosshair == null)
+        {
+            return;
+        }
+
+        Vector2 mousePosition = Mouse.current.position.ReadValue();
+
+        crosshair.position = mousePosition;
     }
 }
