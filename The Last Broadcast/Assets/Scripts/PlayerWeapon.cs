@@ -8,18 +8,23 @@ public class PlayerWeapon : MonoBehaviour
 
     [Header("Crosshair")]
     [SerializeField] private RectTransform crosshair;
+    [SerializeField] private Transform targetPoint;
+    [SerializeField] private float targetDistance = 100f;
 
     private ParticleSystem[] machineGunParticles;
     private bool isFiring = false;
 
+    private Camera mainCamera;
+
     private void Awake()
     {
         machineGunParticles = machineGuns.GetComponentsInChildren<ParticleSystem>(true);
+        mainCamera = Camera.main;
 
         SetMachineGunEmission(false);
     }
 
-    void Start()
+    private void Start()
     {
         Cursor.visible = false;
     }
@@ -28,6 +33,9 @@ public class PlayerWeapon : MonoBehaviour
     {
         ProcessFiring();
         MoveCrosshair();
+        MoveTargetPoint();
+        AimGuns();
+
     }
 
     public void OnFire(InputValue value)
@@ -64,5 +72,44 @@ public class PlayerWeapon : MonoBehaviour
         Vector2 mousePosition = Mouse.current.position.ReadValue();
 
         crosshair.position = mousePosition;
+    }
+
+    private void MoveTargetPoint()
+    {
+        if (Mouse.current == null || targetPoint == null || mainCamera == null)
+        {
+            return;
+        }
+
+        Vector2 mousePosition = Mouse.current.position.ReadValue();
+
+        Vector3 targetPointPosition = new Vector3(
+            mousePosition.x,
+            mousePosition.y,
+            targetDistance
+        );
+
+        targetPoint.position = mainCamera.ScreenToWorldPoint(targetPointPosition);
+    }
+
+    private void AimGuns()
+    {
+        if (targetPoint == null)
+        {
+            return;
+        }
+
+        foreach (ParticleSystem particle in machineGunParticles)
+        {
+            Vector3 fireDirection = targetPoint.position - particle.transform.position;
+
+            if (fireDirection == Vector3.zero)
+            {
+                continue;
+            }
+
+            Quaternion rotationToTarget = Quaternion.LookRotation(fireDirection);
+            particle.transform.rotation = rotationToTarget;
+        }
     }
 }
