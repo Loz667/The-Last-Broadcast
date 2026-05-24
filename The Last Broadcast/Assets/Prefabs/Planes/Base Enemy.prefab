@@ -213,3 +213,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   explosionVFX: {fileID: 100004, guid: 084c6a87873fd6e4da7978a01aa18b34, type: 3}
+  hitPoints: 10
